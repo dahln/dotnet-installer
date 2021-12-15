@@ -10,13 +10,13 @@ There are two ways to run the files:
 
 ## Download and run the files (Recommended)
 
-#### dotnet 5
-```
-wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-5.0.sh | sudo bash
-```
 #### dotnet 6
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-6.0.sh | sudo bash
+```
+#### dotnet 5
+```
+wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-5.0.sh | sudo bash
 ```
 #### uninstaller - all versions
 ```
