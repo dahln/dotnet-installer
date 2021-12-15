@@ -3,8 +3,7 @@ Install .NET on a Raspberry Pi.
 
 Tested on Raspberry Pi 4, running Raspberry Pi OS.
 
-## You need to copy these files to your device
-Download and run the files (Recommended)
+## Download and run the files (Recommended)
 
 #### dotnet 5
 ```
@@ -18,9 +17,7 @@ wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/instal
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/uninstaller.sh | sudo bash
 ```
-### OR 
-
-Either install git on your device:
+## OR Use Git to clone the project on your device:
 ```
 apt install git -y
 git clone https://github.com/dahln/dotnet-installer
@@ -36,5 +33,5 @@ sudo ./installer-6.0.sh
 ```
 
 
-#### Attribution:
+## Attribution
 This project referenced and reused parts of this project: https://github.com/pjgpetecodes/dotnet5pi
