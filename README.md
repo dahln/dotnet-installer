@@ -1,10 +1,13 @@
 # dotnet-installer
-Install .NET for ARM on a Raspberry PI.
+Install .NET for ARM on a Raspberry PI. Choose the version of .NET you want.
 
 ## You need to copy these files to your device
 Download the files directly from git (Recommended)
 ```
-wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer.sh | sudo bash
+wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-5.0.sh | sudo bash
+```
+```
+wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-6.0.sh | sudo bash
 ```
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/uninstaller.sh | sudo bash
