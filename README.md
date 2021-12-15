@@ -1,6 +1,8 @@
 # dotnet-installer
 Install .NET on a Raspberry Pi.
 
+Tested on Raspberry Pi 4, running Raspberry Pi OS.
+
 ## You need to copy these files to your device
 Download and run the files (Recommended)
 
