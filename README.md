@@ -27,7 +27,7 @@ If you clone the project, you will need to grant execution permissions to the fi
 sudo chmod +x installer-6.0.sh
 sudo chmod +x uninstaller.sh
 ```
-Runn the commands like this:
+Run the commands like this:
 ```
 sudo ./installer-6.0.sh 
 ```
