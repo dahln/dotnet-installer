@@ -17,7 +17,7 @@ wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/instal
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/uninstaller.sh | sudo bash
 ```
-## OR Use Git to clone the project on your device:
+## OR - Use Git to clone the project on your device
 ```
 apt install git -y
 git clone https://github.com/dahln/dotnet-installer
