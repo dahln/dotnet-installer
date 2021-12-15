@@ -1,9 +1,10 @@
 #!/bin/bash
 
-echo 'Install .NET 6 SDK - Install/Setup Script'
-
+echo '---------------- Install .NET 6 SDK - Install/Setup Script ---------------'
+echo 'For issues or suggestions, visit https://github.com/dahln/dotnet-installer'
+echo '--------------------------------------------------------------------------'
 dotnetver=6.0
-sdkfile=/tmp/dotnetsdk.tar.gz
+sdkTar=/tmp/dotnetsdk.tar.gz
 
 download() {
     [[ $downloadspage =~ $1 ]]
@@ -27,30 +28,33 @@ detectArch() {
 }
 
 
+
 if [[ $EUID -ne 0 ]]; then
-   echo -e "\e[1;31mThis script must be run as root (sudo $0)" 
+   echo -e "==> This script must be run as root (sudo $0)" 
    exit 1
 fi
 
-echo 'Installing Dependencies'
+
+
+echo '==> Installing Dependencies...'
 apt install libunwind8 gettext -y
 
 
 
-echo 'Cleaning up old files'
-rm -f $sdkfile
+echo '==> Cleaning up old files...'
+rm -f $sdkTar
 
 
 
-echo "Downloading .NET SDK $dotnetver"
+echo "==> Downloading .NET SDK $dotnetver..."
 [[ "$dotnetver" > "5" ]] && dotnettype="dotnet" || dotnettype="dotnet-core"
 downloadspage=$(wget -qO - https://dotnet.microsoft.com/download/$dotnettype/$dotnetver)
 detectArch
-download 'href="([^"]*sdk-[^"/]*linux-'$arch'-binaries)"' $sdkfile
+download 'href="([^"]*sdk-[^"/]*linux-'$arch'-binaries)"' $sdkTar
 
 
 
-echo 'Creating /opt/dotnet directory'
+echo '==> Creating /opt/dotnet directory...'
 if [[ -d /opt/dotnet ]]; then
     echo "/opt/dotnet already exists"
 else
@@ -59,19 +63,19 @@ fi
 
 
 
-echo "Extracing .NET SDK version $dotnetver"
-tar -xvf $sdkfile -C /opt/dotnet/
+echo "==> Extracing .NET SDK version $dotnetver..."
+tar -xvf $sdkTar -C /opt/dotnet/
 
 
 
-echo 'Linking to user profile'
+echo '==> Linking to user profile...'
 ln -s /opt/dotnet/dotnet /usr/local/bin
 
 
 
-echo 'Updating Path'
+echo '==> Updating Path...'
 if grep -q 'export DOTNET_ROOT=' /home/pi/.bashrc;  then
-  echo '.bashrc'
+  echo '.bashrc already up-to-date'
 else
   echo 'Updating .bashrc'
   echo 'export DOTNET_ROOT=/opt/dotnet' >> /home/pi/.bashrc
@@ -79,5 +83,6 @@ fi
 
 
 
-dotnet --info
-echo 'Finished'
+echo '==> Finished'
+echo 'Rebooting is suggested'
+echo 'run "dotnet --info" to test if SDK is correctly installed'
