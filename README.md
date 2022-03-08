@@ -10,6 +10,8 @@ There are two ways to run the files:
  - OR
  - Use Git to clone the repo, then run the files
 
+When a minor .NET update is published, simple run the "uninstaller.sh" script and then run the latest "installer-x.0.sh" script. For example, if you are currently running 6.0.2, run the uninstall and then the install, 6.0.3 should now be installed. Verify with "dotnet --info".
+
 ## Download and run the files (Recommended)
 
 #### dotnet 6
