@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo '------------------ Uninstall .NET 6 (All Versions) SDK -------------------'
+echo '------------------ Uninstall .NET (All Versions) SDK -------------------'
 echo 'For issues or suggestions, visit https://github.com/dahln/dotnet-installer'
 echo '--------------------------------------------------------------------------'
 
