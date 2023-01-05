@@ -14,6 +14,10 @@ When a minor .NET update is published, simple run the "uninstaller.sh" script an
 
 ## Download and run the files (Recommended)
 
+#### dotnet 7
+```
+wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-7.0.sh | sudo bash
+```
 #### dotnet 6
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-6.0.sh | sudo bash
@@ -33,12 +37,12 @@ git clone https://github.com/dahln/dotnet-installer
 ```
 If you clone the project, you will need to grant execution permissions to the files:
 ```
-sudo chmod +x installer-6.0.sh
+sudo chmod +x installer-7.0.sh
 sudo chmod +x uninstaller.sh
 ```
 Run the commands like this:
 ```
-sudo ./installer-6.0.sh 
+sudo ./installer-7.0.sh 
 ```
 
 
