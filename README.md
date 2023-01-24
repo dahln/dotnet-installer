@@ -30,7 +30,7 @@ wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/instal
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/uninstaller.sh | sudo bash
 ```
-## Use Git to clone the repo
+## If you prefer to clone and run the files manually, do this:
 ```
 apt install git -y
 git clone https://github.com/dahln/dotnet-installer
