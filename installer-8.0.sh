@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo '---------------- Install .NET 5 SDK - Install/Setup Script ---------------'
+echo '---------------- Install .NET 8 SDK - Install/Setup Script ---------------'
 echo 'For issues or suggestions, visit https://github.com/dahln/dotnet-installer'
 echo '--------------------------------------------------------------------------'
-dotnetver=5.0
+dotnetver=8.0
 sdkTar=/tmp/dotnetsdk.tar.gz
 
 download() {
@@ -15,19 +15,6 @@ download() {
     wget -O $2 "${BASH_REMATCH[1]}"
 }
 
-detectArch() {
-    arch=arm32
-  
-    if command -v uname > /dev/null; then
-        machineCpu=$(uname -m)-$(uname -p)
-
-        if [[ $machineCpu == *64* ]]; then
-            arch=arm64
-        fi
-    fi
-}
-
-
 
 if [[ $EUID -ne 0 ]]; then
    echo -e "==> This script must be run as root (sudo $0)" 
@@ -35,10 +22,8 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 
-
 echo '==> Installing Dependencies...'
 apt install libunwind8 gettext -y
-
 
 
 echo '==> Cleaning up old files...'
@@ -47,10 +32,8 @@ rm -f $sdkTar
 
 
 echo "==> Downloading .NET SDK $dotnetver..."
-[[ "$dotnetver" > "5" ]] && dotnettype="dotnet" || dotnettype="dotnet-core"
-downloadspage=$(wget -qO - https://dotnet.microsoft.com/download/$dotnettype/$dotnetver)
-detectArch
-download 'href="([^"]*sdk-[^"/]*linux-'$arch'-binaries)"' $sdkTar
+downloadspage=$(wget -qO - https://dotnet.microsoft.com/download/dotnet/$dotnetver)
+download 'href="([^"]*sdk-[^"/]*linux-arm64-binaries)"' $sdkTar
 
 
 
@@ -74,11 +57,11 @@ ln -s /opt/dotnet/dotnet /usr/local/bin
 
 
 echo '==> Updating Path...'
-if grep -q 'export DOTNET_ROOT=' /home/pi/.bashrc;  then
+if grep -q 'export DOTNET_ROOT=' /root/.bashrc;  then
   echo '.bashrc already up-to-date'
 else
   echo 'Updating .bashrc'
-  echo 'export DOTNET_ROOT=/opt/dotnet' >> /home/pi/.bashrc
+  echo 'export DOTNET_ROOT=/opt/dotnet' >> /root/.bashrc
 fi
 
 
