@@ -1,5 +1,5 @@
 # dotnet-installer
-Install .NET on an ARM64 LInux device. 32 bit not tested.
+Install .NET SDK on an ARM64 LInux device. 32 bit not tested.
 
 This script has been tested on:
  - Ubuntu 20.04 ARM64
