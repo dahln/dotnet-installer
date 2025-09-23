@@ -11,10 +11,16 @@ Microsoft does not support installing the dotnet SDK on ARM devices using a pack
 
 When a minor .NET update is published, simple run the "uninstaller.sh" script and then run the latest isntall script. For example, if you are currently running 6.0.2, run the uninstall and then the install, 6.0.3 should now be installed. Verify with "dotnet --info".
 
+#### dotnet 9
+```
+wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-9.0.sh | sudo bash
+```
+
 #### dotnet 8
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/installer-8.0.sh | sudo bash
 ```
+
 #### uninstaller
 ```
 wget -O - https://raw.githubusercontent.com/dahln/dotnet-installer/master/uninstaller.sh | sudo bash
